@@ -22,12 +22,12 @@ struct HomeView: View {
                         HomeListView(item: item)
                     }
                 case .settings:
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: SettingsView(value: 60)) {
                         HomeListView(item: item)
                     }
                 }
             }
-            .navigationTitle("Options")
+            .navigationTitle("Plank")
         }
     }
 }
