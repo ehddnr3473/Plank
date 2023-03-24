@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B39D1BE29CE20F900F6980F /* HomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39D1BD29CE20F900F6980F /* HomeListView.swift */; };
 		6BCFB10229CC0FA90047C6F4 /* Plank Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6BCFB10129CC0FA90047C6F4 /* Plank Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6BCFB10729CC0FA90047C6F4 /* PlankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB10629CC0FA90047C6F4 /* PlankApp.swift */; };
-		6BCFB10929CC0FA90047C6F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB10829CC0FA90047C6F4 /* ContentView.swift */; };
+		6BCFB10929CC0FA90047C6F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB10829CC0FA90047C6F4 /* HomeView.swift */; };
 		6BCFB10B29CC0FAB0047C6F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BCFB10A29CC0FAB0047C6F4 /* Assets.xcassets */; };
 		6BCFB10E29CC0FAB0047C6F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BCFB10D29CC0FAB0047C6F4 /* Preview Assets.xcassets */; };
 		6BCFB11829CC0FAB0047C6F4 /* Plank_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB11729CC0FAB0047C6F4 /* Plank_Watch_AppTests.swift */; };
@@ -17,7 +18,7 @@
 		6BCFB12429CC0FAB0047C6F4 /* Plank_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB12329CC0FAB0047C6F4 /* Plank_Watch_AppUITestsLaunchTests.swift */; };
 		6BFF64AB29CDBD7B001ADCD2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF64AA29CDBD7B001ADCD2 /* TimerView.swift */; };
 		6BFF64AD29CDBDC1001ADCD2 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF64AC29CDBDC1001ADCD2 /* TimerViewModel.swift */; };
-		6BFF64B329CDCCE8001ADCD2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF64B229CDCCE8001ADCD2 /* HomeView.swift */; };
+		6BFF64BA29CE0450001ADCD2 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF64B929CE0450001ADCD2 /* HomeItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +60,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B39D1BD29CE20F900F6980F /* HomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListView.swift; sourceTree = "<group>"; };
 		6BCFB0FB29CC0FA90047C6F4 /* Plank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCFB10129CC0FA90047C6F4 /* Plank Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plank Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCFB10629CC0FA90047C6F4 /* PlankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankApp.swift; sourceTree = "<group>"; };
-		6BCFB10829CC0FA90047C6F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6BCFB10829CC0FA90047C6F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		6BCFB10A29CC0FAB0047C6F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BCFB10D29CC0FAB0047C6F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6BCFB11329CC0FAB0047C6F4 /* Plank Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Plank Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +74,7 @@
 		6BCFB12329CC0FAB0047C6F4 /* Plank_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plank_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6BFF64AA29CDBD7B001ADCD2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		6BFF64AC29CDBDC1001ADCD2 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		6BFF64B229CDCCE8001ADCD2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6BFF64B929CE0450001ADCD2 /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF64B129CDCCDA001ADCD2 /* Views */,
+				6BFF64B829CE0443001ADCD2 /* Models */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,8 +197,8 @@
 		6BFF64B129CDCCDA001ADCD2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6BCFB10829CC0FA90047C6F4 /* ContentView.swift */,
-				6BFF64B229CDCCE8001ADCD2 /* HomeView.swift */,
+				6BCFB10829CC0FA90047C6F4 /* HomeView.swift */,
+				6B39D1BD29CE20F900F6980F /* HomeListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +217,14 @@
 				6BCFB10A29CC0FAB0047C6F4 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6BFF64B829CE0443001ADCD2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF64B929CE0450001ADCD2 /* HomeItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,8 +387,9 @@
 			files = (
 				6BFF64AD29CDBDC1001ADCD2 /* TimerViewModel.swift in Sources */,
 				6BFF64AB29CDBD7B001ADCD2 /* TimerView.swift in Sources */,
-				6BCFB10929CC0FA90047C6F4 /* ContentView.swift in Sources */,
-				6BFF64B329CDCCE8001ADCD2 /* HomeView.swift in Sources */,
+				6BCFB10929CC0FA90047C6F4 /* HomeView.swift in Sources */,
+				6B39D1BE29CE20F900F6980F /* HomeListView.swift in Sources */,
+				6BFF64BA29CE0450001ADCD2 /* HomeItem.swift in Sources */,
 				6BCFB10729CC0FA90047C6F4 /* PlankApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
