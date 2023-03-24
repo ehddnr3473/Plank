@@ -8,39 +8,28 @@
 import SwiftUI
 
 struct TimerView: View {
-    @State var isTimerRunning = false
-    @State var remainingTime = 60
+    @ObservedObject var viewModel: DefaultTimerViewModel
     
     var body: some View {
         VStack {
-            Text("\(remainingTime)")
+            Text("\(viewModel.remainingTime)")
                 .font(.largeTitle)
                 .padding()
             
-            Button(isTimerRunning ? "Pause" : "Start") {
-                startTimer()
+            Button(viewModel.isTimerRunning ? "Pause" : "Start") {
+                viewModel.startTimer()
             }
             .buttonStyle(.bordered)
             .tint(.pink)
         }
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect(), perform: { _ in
-            tick()
+            viewModel.tick()
         })
-    }
-    
-    func startTimer() {
-        isTimerRunning.toggle()
-    }
-    
-    func tick() {
-        if isTimerRunning && remainingTime > 0 {
-            remainingTime -= 1
-        }
     }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(viewModel: DefaultTimerViewModel(remainingTime: 60))
     }
 }
