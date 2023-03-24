@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B39D1BE29CE20F900F6980F /* HomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39D1BD29CE20F900F6980F /* HomeListView.swift */; };
+		6B39D1C129CE233900F6980F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39D1C029CE233900F6980F /* SettingsView.swift */; };
 		6BCFB10229CC0FA90047C6F4 /* Plank Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6BCFB10129CC0FA90047C6F4 /* Plank Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6BCFB10729CC0FA90047C6F4 /* PlankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB10629CC0FA90047C6F4 /* PlankApp.swift */; };
 		6BCFB10929CC0FA90047C6F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCFB10829CC0FA90047C6F4 /* HomeView.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		6B39D1BD29CE20F900F6980F /* HomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListView.swift; sourceTree = "<group>"; };
+		6B39D1C029CE233900F6980F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6BCFB0FB29CC0FA90047C6F4 /* Plank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCFB10129CC0FA90047C6F4 /* Plank Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plank Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCFB10629CC0FA90047C6F4 /* PlankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankApp.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B39D1BF29CE232600F6980F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6B39D1C029CE233900F6980F /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		6BCFB0F429CC0FA90047C6F4 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 				6BFF64B629CDCF32001ADCD2 /* Resources */,
 				6BFF64B029CDCC07001ADCD2 /* Home */,
 				6BFF64A929CDBD68001ADCD2 /* Timer */,
+				6B39D1BF29CE232600F6980F /* Settings */,
 				6BCFB10C29CC0FAB0047C6F4 /* Preview Content */,
 			);
 			path = "Plank Watch App";
@@ -385,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B39D1C129CE233900F6980F /* SettingsView.swift in Sources */,
 				6BFF64AD29CDBDC1001ADCD2 /* TimerViewModel.swift in Sources */,
 				6BFF64AB29CDBD7B001ADCD2 /* TimerView.swift in Sources */,
 				6BCFB10929CC0FA90047C6F4 /* HomeView.swift in Sources */,
