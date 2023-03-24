@@ -124,11 +124,11 @@
 		6BCFB10529CC0FA90047C6F4 /* Plank Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				6BFF64B529CDCF27001ADCD2 /* Application */,
+				6BFF64B629CDCF32001ADCD2 /* Resources */,
 				6BFF64B029CDCC07001ADCD2 /* Home */,
 				6BFF64A929CDBD68001ADCD2 /* Timer */,
-				6BCFB10629CC0FA90047C6F4 /* PlankApp.swift */,
 				6BCFB10829CC0FA90047C6F4 /* ContentView.swift */,
-				6BCFB10A29CC0FAB0047C6F4 /* Assets.xcassets */,
 				6BCFB10C29CC0FAB0047C6F4 /* Preview Content */,
 			);
 			path = "Plank Watch App";
@@ -198,6 +198,22 @@
 				6BFF64B229CDCCE8001ADCD2 /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6BFF64B529CDCF27001ADCD2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6BCFB10629CC0FA90047C6F4 /* PlankApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6BFF64B629CDCF32001ADCD2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6BCFB10A29CC0FAB0047C6F4 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
