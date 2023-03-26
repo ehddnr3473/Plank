@@ -11,7 +11,7 @@ import SwiftUI
 struct Plank_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NavigationRootView()
         }
     }
 }
