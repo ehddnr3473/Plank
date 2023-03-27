@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var value: Int
+    @State var value: Float
     
     var body: some View {
-        Stepper(String(value), value: $value)
+        Stepper(String(Int(value)), value: $value)
+            .digitalCrownRotation(
+                $value,
+                from: 0,
+                through: 200,
+                by: 1,
+                sensitivity: .low,
+                isContinuous: true,
+                isHapticFeedbackEnabled: true
+            )
     }
 }
 
