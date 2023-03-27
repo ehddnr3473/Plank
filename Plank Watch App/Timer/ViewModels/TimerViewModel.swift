@@ -21,7 +21,7 @@ protocol TimerViewModelOutput: AnyObject {
 
 typealias TimerViewModel = TimerViewModelInput & TimerViewModelOutput
 
-final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
+final class DefaultTimerViewModel: NSObject, ObservableObject, TimerViewModel {
     // MARK: - Output
     @Published var isTimerRunning = false
     @Published var remainingTime: Int
@@ -36,6 +36,7 @@ final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
 extension DefaultTimerViewModel {
     func configureNotification() {
         let center = UNUserNotificationCenter.current()
+        center.delegate = self
         center.getNotificationSettings { settings in
             guard (settings.authorizationStatus == .authorized) ||
                   (settings.authorizationStatus == .provisional) else {
@@ -59,20 +60,47 @@ extension DefaultTimerViewModel {
         if isTimerRunning && remainingTime > 0 {
             remainingTime -= 1
         }
+        
+        if remainingTime == 59 {
+            sendNotification()
+        }
     }
 }
 
 // MARK: - Private
 private extension DefaultTimerViewModel {
     func requestAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .provisional]) { granted, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted {
-                // Configure sended Notification
+                
             } else if let error = error {
                 #if DEBUG
                 print(String(describing: error))
                 #endif
             }
         }
+    }
+    
+    func sendNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Notification"
+        content.body = "Finish"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(1), repeats: false)
+        
+        let request = UNNotificationRequest(
+            identifier: "FINISH",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(request)
+    }
+}
+
+extension DefaultTimerViewModel: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.sound)
     }
 }
