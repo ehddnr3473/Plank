@@ -8,13 +8,14 @@
 import Foundation
 
 protocol TimerViewModelInput: AnyObject {
+    func updateTime()
     func startTimer()
     func tick()
 }
 
 protocol TimerViewModelOutput: AnyObject {
     var isTimerRunning: Bool { get }
-    var remainingTime: Int { get }
+    var remainingTime: TimeInterval { get }
 }
 
 typealias TimerViewModel = TimerViewModelInput & TimerViewModelOutput
@@ -22,16 +23,20 @@ typealias TimerViewModel = TimerViewModelInput & TimerViewModelOutput
 final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
     // MARK: - Output
     @Published var isTimerRunning = false
-    @Published var remainingTime: Int
+    @Published var remainingTime: TimeInterval
     
     // MARK: - Init
-    init(remainingTime: Int) {
-        self.remainingTime = remainingTime
+    init() {
+        self.remainingTime = DefaultTimerViewModel.restoreRemainingTime()
     }
 }
 
 // MARK: - Input
 extension DefaultTimerViewModel {
+    func updateTime() {
+        self.remainingTime = DefaultTimerViewModel.restoreRemainingTime()
+    }
+    
     func startTimer() {
         isTimerRunning.toggle()
     }
@@ -39,6 +44,17 @@ extension DefaultTimerViewModel {
     func tick() {
         if isTimerRunning && remainingTime > 0 {
             remainingTime -= 1
+        }
+    }
+}
+
+// MARK: - Private
+private extension DefaultTimerViewModel {
+    static func restoreRemainingTime() -> TimeInterval {
+        if let time = SettingsManager.restore(saveName: "TIME") as? TimeInterval {
+            return time
+        } else {
+            return 60
         }
     }
 }
