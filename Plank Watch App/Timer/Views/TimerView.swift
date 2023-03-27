@@ -12,7 +12,7 @@ struct TimerView: View {
     
     var body: some View {
         VStack {
-            Text("\(viewModel.remainingTime)")
+            Text("\(Int(viewModel.remainingTime))")
                 .font(.largeTitle)
                 .padding()
             
@@ -23,7 +23,7 @@ struct TimerView: View {
             .tint(.pink)
         }
         .toolbar { SettingsLinkView() }
-        .onAppear { viewModel.configureNotification() }
+        .onAppear { viewModel.updateTime() }
         .onReceive(
             Timer.publish(
                 every: 1,
@@ -39,6 +39,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(viewModel: DefaultTimerViewModel(remainingTime: 60))
+        TimerView(viewModel: DefaultTimerViewModel())
     }
 }
