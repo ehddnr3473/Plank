@@ -22,9 +22,18 @@ struct TimerView: View {
             .buttonStyle(.bordered)
             .tint(.pink)
         }
-        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect(), perform: { _ in
-            viewModel.tick()
-        })
+        .toolbar { SettingsLinkView() }
+        .onAppear { viewModel.configureNotification() }
+        .onReceive(
+            Timer.publish(
+                every: 1,
+                on: .main,
+                in: .common
+            ).autoconnect(),
+            perform: { _ in
+                viewModel.tick()
+            }
+        )
     }
 }
 
