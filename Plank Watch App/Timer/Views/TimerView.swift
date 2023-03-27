@@ -22,6 +22,8 @@ struct TimerView: View {
             .buttonStyle(.bordered)
             .tint(.pink)
         }
+        .toolbar { SettingsLinkView() }
+        .onAppear { viewModel.configureNotification() }
         .onReceive(
             Timer.publish(
                 every: 1,
@@ -32,7 +34,6 @@ struct TimerView: View {
                 viewModel.tick()
             }
         )
-        .toolbar { SettingsLinkView() }
     }
 }
 
