@@ -10,7 +10,7 @@ import SwiftUI
 struct NavigationRootView: View {
     var body: some View {
         NavigationStack {
-            TimerView(viewModel: DefaultTimerViewModel(remainingTime: 60))
+            TimerView(viewModel: DefaultTimerViewModel())
         }
     }
 }

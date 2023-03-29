@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SettingsLinkView: View {
+    @StateObject var settingsState = SettingsState()
+    
     var body: some View {
-        NavigationLink(destination: { SettingsView(value: 60) }) {
+        NavigationLink(destination: { SettingsView(settingsState: settingsState) }) {
             Label("Settings", systemImage: "gearshape.circle")
         }
         .tint(Color.blue)

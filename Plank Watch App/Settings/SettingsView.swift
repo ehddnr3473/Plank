@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var value: Int
+    @ObservedObject var settingsState: SettingsState
     
     var body: some View {
-        Stepper(String(value), value: $value)
+        Stepper(String(Int(settingsState.time)), value: $settingsState.time)
+            .digitalCrownRotation(
+                $settingsState.time,
+                from: 0,
+                through: 200,
+                by: 1,
+                sensitivity: .low,
+                isContinuous: true,
+                isHapticFeedbackEnabled: true
+            )
+            .onChange(of: settingsState.time) { _ in
+                SettingsManager.save(
+                    settingsState,
+                    saveName: "TIME"
+                )
+            }
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(value: 60)
+        SettingsView(settingsState: SettingsState())
     }
 }
