@@ -9,9 +9,10 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var settingsState: SettingsState
+    var convertedTime: String { String(Int(settingsState.time)) }
     
     var body: some View {
-        Stepper(String(Int(settingsState.time)), value: $settingsState.time)
+        Stepper(convertedTime, value: $settingsState.time)
             .digitalCrownRotation(
                 $settingsState.time,
                 from: 0,
@@ -24,7 +25,7 @@ struct SettingsView: View {
             .onChange(of: settingsState.time) { _ in
                 SettingsManager.save(
                     settingsState,
-                    saveName: "TIME"
+                    saveName: SettingsManager.Keys.time
                 )
             }
     }
