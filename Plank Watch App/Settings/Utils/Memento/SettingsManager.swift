@@ -9,6 +9,10 @@ import Foundation
 
 /// Caretaker
 enum SettingsManager {
+    enum Keys {
+        static let time = "TIME"
+    }
+    
     private static let defaults = UserDefaults.standard
     
     static func save(_ state: SettingsState, saveName: String) {
