@@ -37,11 +37,11 @@ struct TimerView: View {
     // MARK: - Set/Time body
     var timerBody: some View {
         HStack {
-            Text("Set: \(Int(viewModel.numberOfSet))")
+            Text("Set: \(viewModel.numberOfSet)")
                 .font(.headline)
                 .padding()
             
-            Text("\(Int(viewModel.remainingTime))")
+            Text("\(viewModel.remainingTime)")
                 .font(.largeTitle)
                 .padding()
         }
