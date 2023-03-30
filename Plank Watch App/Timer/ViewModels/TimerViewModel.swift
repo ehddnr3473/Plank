@@ -9,13 +9,14 @@ import Foundation
 
 protocol TimerViewModelInput: AnyObject {
     func updateTime()
-    func startTimer()
     func tick()
+    func reset()
 }
 
 protocol TimerViewModelOutput: AnyObject {
-    var isTimerRunning: Bool { get }
+    var isTimerRunning: Bool { get set }
     var remainingTime: TimeInterval { get }
+    var numberOfSet: Int { get }
 }
 
 typealias TimerViewModel = TimerViewModelInput & TimerViewModelOutput
@@ -23,12 +24,11 @@ typealias TimerViewModel = TimerViewModelInput & TimerViewModelOutput
 final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
     // MARK: - Private
     private var time: TimeInterval
-    private var numberOfSet = 1
     
     // MARK: - Output
     @Published var isTimerRunning = false
     @Published var remainingTime: TimeInterval
-    @Published var plankSets = [PlankSet]()
+    @Published var numberOfSet = 0
     
     // MARK: - Init
     init() {
@@ -44,19 +44,23 @@ extension DefaultTimerViewModel {
         self.remainingTime = time
     }
     
-    func startTimer() {
-        isTimerRunning.toggle()
-    }
-    
     func tick() {
         if isTimerRunning && remainingTime > 0 {
             remainingTime -= 1
         } else if isTimerRunning && remainingTime == 0 {
             isTimerRunning = false
             remainingTime = time
-            plankSets.append(.init(numberOfSet: numberOfSet, time: time))
             numberOfSet += 1
         }
+    }
+    
+    func reset() {
+        if !isTimerRunning {
+            numberOfSet = 0
+        }
+        
+        isTimerRunning = false
+        updateTime()
     }
 }
 
