@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 protocol TimerViewModelInput: AnyObject {
     func updateTime()
