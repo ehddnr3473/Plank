@@ -29,6 +29,9 @@ struct TimerView: View {
                 .buttonStyle(.bordered)
                 .tint(viewModel.isTimerRunning ? .pink : .green)
             }
+            
+            PlankSetListView(plankSets: $viewModel.plankSets)
+                .padding()
         }
         .toolbar { SettingsLinkView() }
         .onAppear { viewModel.updateTime() }
