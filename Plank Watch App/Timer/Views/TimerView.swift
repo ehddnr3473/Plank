@@ -10,28 +10,15 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var viewModel: DefaultTimerViewModel
     
+    // MARK: - Body
     var body: some View {
         VStack {
-            Text("\(Int(viewModel.remainingTime))")
-                .font(.largeTitle)
-                .padding()
+            timerBody
             
             HStack {
-                Button("Reset") {
-                    viewModel.isTimerRunning = false
-                    viewModel.updateTime()
-                }
-                .buttonStyle(.bordered)
-                
-                Button(viewModel.isTimerRunning ? "Pause" : "Start") {
-                    viewModel.startTimer()
-                }
-                .buttonStyle(.bordered)
-                .tint(viewModel.isTimerRunning ? .pink : .green)
+                resetButton
+                startPauseButton
             }
-            
-            PlankSetListView(plankSets: $viewModel.plankSets)
-                .padding()
         }
         .toolbar { SettingsLinkView() }
         .onAppear { viewModel.updateTime() }
@@ -46,8 +33,39 @@ struct TimerView: View {
             }
         )
     }
+    
+    // MARK: - Set/Time body
+    var timerBody: some View {
+        HStack {
+            Text("Set: \(Int(viewModel.numberOfSet))")
+                .font(.headline)
+                .padding()
+            
+            Text("\(Int(viewModel.remainingTime))")
+                .font(.largeTitle)
+                .padding()
+        }
+    }
+    
+    // MARK: - Button
+    var resetButton: some View {
+        Button("Reset") {
+            viewModel.reset()
+        }
+        .buttonStyle(.bordered)
+        .tint(viewModel.isTimerRunning ? .yellow : .red)
+    }
+    
+    var startPauseButton: some View {
+        Button(viewModel.isTimerRunning ? "Pause" : "Start") {
+            viewModel.isTimerRunning.toggle()
+        }
+        .buttonStyle(.bordered)
+        .tint(viewModel.isTimerRunning ? .pink : .green)
+    }
 }
 
+// MARK: - Preview
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         TimerView(viewModel: DefaultTimerViewModel())
