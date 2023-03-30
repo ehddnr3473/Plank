@@ -16,11 +16,19 @@ struct TimerView: View {
                 .font(.largeTitle)
                 .padding()
             
-            Button(viewModel.isTimerRunning ? "Pause" : "Start") {
-                viewModel.startTimer()
+            HStack {
+                Button("Reset") {
+                    viewModel.isTimerRunning = false
+                    viewModel.updateTime()
+                }
+                .buttonStyle(.bordered)
+                
+                Button(viewModel.isTimerRunning ? "Pause" : "Start") {
+                    viewModel.startTimer()
+                }
+                .buttonStyle(.bordered)
+                .tint(viewModel.isTimerRunning ? .pink : .green)
             }
-            .buttonStyle(.bordered)
-            .tint(.pink)
         }
         .toolbar { SettingsLinkView() }
         .onAppear { viewModel.updateTime() }
