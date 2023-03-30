@@ -24,7 +24,7 @@ typealias TimerViewModel = TimerViewModelInput & TimerViewModelOutput
 
 final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
     // MARK: - Private
-    private var time: TimeInterval
+    private var setTime: Int
     
     // MARK: - Output
     @Published var isTimerRunning = false
@@ -33,16 +33,16 @@ final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
     
     // MARK: - Init
     init() {
-        self.time = DefaultTimerViewModel.restoreRemainingTime()
-        self.remainingTime = Int(time)
+        self.setTime = Int(DefaultTimerViewModel.restoreRemainingTime())
+        self.remainingTime = setTime
     }
 }
 
 // MARK: - Input
 extension DefaultTimerViewModel {
     func updateTime() {
-        time = DefaultTimerViewModel.restoreRemainingTime()
-        remainingTime = Int(time)
+        setTime = Int(DefaultTimerViewModel.restoreRemainingTime())
+        remainingTime = setTime
     }
     
     func tick() {
@@ -50,7 +50,7 @@ extension DefaultTimerViewModel {
             remainingTime -= 1
         } else if isTimerRunning && remainingTime == 0 {
             isTimerRunning = false
-            remainingTime = Int(time)
+            remainingTime = setTime
             numberOfSet += 1
         }
     }
@@ -61,7 +61,7 @@ extension DefaultTimerViewModel {
         }
         
         isTimerRunning = false
-        remainingTime = Int(time)
+        remainingTime = setTime
     }
 }
 
