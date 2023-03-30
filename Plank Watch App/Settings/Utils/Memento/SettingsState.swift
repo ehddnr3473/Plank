@@ -9,12 +9,10 @@ import Foundation
 
 /// Originator
 final class SettingsState: ObservableObject {
-    typealias Memento = TimeInterval
-    
-    @Published var time: Memento
+    @Published var time: TimeInterval
     
     init() {
-        if let time = SettingsManager.restore(saveName: "TIME") as? TimeInterval {
+        if let time = SettingsManager.restore(saveName: SettingsManager.Keys.time) as? TimeInterval {
             self.time = time
         } else {
             self.time = 60
