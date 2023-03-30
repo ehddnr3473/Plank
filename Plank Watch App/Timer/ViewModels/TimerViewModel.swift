@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol TimerViewModelInput: AnyObject {
     func updateTime()
@@ -15,7 +16,7 @@ protocol TimerViewModelInput: AnyObject {
 
 protocol TimerViewModelOutput: AnyObject {
     var isTimerRunning: Bool { get set }
-    var remainingTime: TimeInterval { get }
+    var remainingTime: Int { get }
     var numberOfSet: Int { get }
 }
 
@@ -27,21 +28,21 @@ final class DefaultTimerViewModel: ObservableObject, TimerViewModel {
     
     // MARK: - Output
     @Published var isTimerRunning = false
-    @Published var remainingTime: TimeInterval
+    @Published var remainingTime: Int
     @Published var numberOfSet = 0
     
     // MARK: - Init
     init() {
         self.time = DefaultTimerViewModel.restoreRemainingTime()
-        self.remainingTime = time
+        self.remainingTime = Int(time)
     }
 }
 
 // MARK: - Input
 extension DefaultTimerViewModel {
     func updateTime() {
-        self.time = DefaultTimerViewModel.restoreRemainingTime()
-        self.remainingTime = time
+        time = DefaultTimerViewModel.restoreRemainingTime()
+        remainingTime = Int(time)
     }
     
     func tick() {
@@ -49,7 +50,7 @@ extension DefaultTimerViewModel {
             remainingTime -= 1
         } else if isTimerRunning && remainingTime == 0 {
             isTimerRunning = false
-            remainingTime = time
+            remainingTime = Int(time)
             numberOfSet += 1
         }
     }
@@ -60,7 +61,7 @@ extension DefaultTimerViewModel {
         }
         
         isTimerRunning = false
-        updateTime()
+        remainingTime = Int(time)
     }
 }
 
